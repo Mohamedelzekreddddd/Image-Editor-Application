@@ -1,0 +1,30 @@
+   def Mean_filter(self):
+        if self.image is not None:
+            kernel_size = (5,5)
+            self.processed_image = cv2.blur(self.image, kernel_size)
+            self.display_image(self.processed_image)
+        else:
+            self.show_message("No image loaded.")
+    def Weighted_avr_filter(self):
+        if self.image is not None:
+            kernel1 = 1 / 16 * (np.array([[1, 2, 1],
+                                          [2, 4, 2],
+                                          [1, 2, 1]]))
+            self.processed_image = cv2.filter2D(self.image, -1, kernel1)
+            self.display_image(self.processed_image)
+        else:
+            self.show_message("No image loaded.")
+    def Median_blur(self):
+        if self.image is not None:
+            #kernel1 = 5
+            self.processed_image = cv2.medianBlur(self.image,  5)
+            self.display_image(self.processed_image)
+        else:
+            self.show_message("No image loaded.")
+    def Gaussian_filter(self):
+        if self.image is not None:
+            kernel1 = (5,5)
+            self.processed_image = cv2.GaussianBlur(self.image, kernel1, 21)
+            self.display_image(self.processed_image)
+        else:
+            self.show_message("No image loaded.")
